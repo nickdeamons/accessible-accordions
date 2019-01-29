@@ -13,6 +13,7 @@ import './polymer/components/accordion.js';
 
 
 import $ from 'jquery';
+
 import jQueryAccordion from './jquery/components/accordion.js';
 
 import BasicAccordion from './vanilla/accordion.js';
@@ -34,7 +35,7 @@ $(document).ready(() => {
 
 });
 
-const vanillaAccordions = document.querySelectorAll('.accordion .panel');
+const vanillaAccordions = document.querySelectorAll('.js-accordion .panel');
 vanillaAccordions.forEach((value, index) => {
   const vAcc = new BasicAccordion(value, index);
 })

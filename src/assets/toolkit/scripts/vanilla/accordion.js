@@ -24,8 +24,9 @@ class BasicAccordion {
             this.toggle();
         })
         this.header.addEventListener('keypress', (e) => {
-            e.preventDefault();
+            
             if(e.keyCode === 13) {
+                e.preventDefault();
                 this.toggle();
             }
 

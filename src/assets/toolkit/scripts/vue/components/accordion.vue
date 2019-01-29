@@ -4,7 +4,7 @@
             <slot></slot>
         </div>
         <Panel v-for="(panel, index) in panels" :key="'panel_'+index" :inner="panel.getElementsByClassName('panel__content')[0]"
-            :header="panel.getElementsByClassName('panel__heading')[0]" />
+            :header="panel.getElementsByClassName('panel__heading')[0]"  />
     </div>
 </template>
 <script>
@@ -20,7 +20,7 @@ export default {
         }
     },
     mounted: function () {
-        console.log(this.$slots);
+        //console.log(this.$slots);
         this.panels = this.$el.getElementsByClassName('panel');
     }
 }

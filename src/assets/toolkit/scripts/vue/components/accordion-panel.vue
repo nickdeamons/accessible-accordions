@@ -3,20 +3,15 @@
         <div @click.prevent="toggle" @keypress.enter="toggle" tabIndex="0" :aria-expanded="active.toString()" class="panel__heading" >
             <component :is="panelHeader" />
         </div>
-        <Expand>
-            <div v-show="active">
-                <div class="panel__content">
-                   <component :is="panelContent" />
-                </div>
-            </div>
-         </Expand>
+        <div class="panel__content" role="tabpanel" aria-hidden="true">
+            <component :is="panelContent" />
+        </div>
     </div>
 </template>
 <script>
 import Expand from '../transitions/Expand.vue';
 export default {
     name: 'Panel',
-    components: {Expand},
     props: {
         inner: HTMLDivElement,
         header: HTMLDivElement,
@@ -30,7 +25,8 @@ export default {
         panelContent() {
             const template = this.inner ? `<div>${this.inner.innerHTML}</div>` : '<div>Empty content!</div>'
             return {
-                template
+                template,
+                props: this.$options.props
             }
         },
         panelHeader() {
