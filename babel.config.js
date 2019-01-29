@@ -3,13 +3,18 @@ module.exports = function babelConfig(api) {
 
   return {
     presets: [
-      [
-        '@babel/preset-env',
+        ['@babel/env',
         {
           modules: false,
           useBuiltIns: 'usage',
-        },
-      ],
+          targets: {
+            browsers: ["last 2 versions", "ie >= 11"]
+            },
+            exclude: ["transform-classes"]
+        }],
+        '@babel/react'
     ],
+    
+    plugins: ['@babel/proposal-class-properties']
   };
 };

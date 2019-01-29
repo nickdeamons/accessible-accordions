@@ -5,3 +5,13 @@
 body {
   font-family: sans-serif;
 }
+
+
+@import 'components/input.scss';
+
+@import 'components/transition.scss';
+
+
+/* Accordions */
+@import 'components/accordions/accordion.scss';
+@import 'components/accordions/panel.scss';

@@ -1,0 +1,6 @@
+// styles for individual accordion element
+.accordion {
+    .panel + .panel {
+        border-top: 0;
+    }
+}

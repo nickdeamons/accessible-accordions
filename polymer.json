@@ -1,0 +1,12 @@
+"builds": [
+    {
+      "bundle": {
+        "stripComments": true,
+        "inlineCss": true,
+        "sourcemaps": false,
+        "excludes": [
+          "node_modules/@webcomponentsjs/webcomponentsjs/webcomponents-loader.js",
+          "node_modules/@webcomponentsjs/webcomponentsjs/custom-elements-es5-adapter.js"
+        ]
+      }
+    }

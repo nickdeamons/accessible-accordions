@@ -1,0 +1,54 @@
+.accordion .panel {
+    border: 1px solid #333;
+    overflow: hidden;
+    padding: 0.5em;
+   
+    &__heading {
+        position: relative;
+        margin: 0;
+        cursor: pointer;
+        button {
+            display: block;
+            text-decoration: none;
+            pointer-events: none;
+        }
+        &:before {
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+        }
+        &:before {
+            background-color: rgba(100, 100, 100, 0.25);
+            height: 20px;
+            right: 0.5em;
+            width: 20px;
+            border-radius: 50%;
+            transition: 0.25s all;
+            transform-origin: 50% 50%;
+            font-size: 13px;
+            line-height: 20px;
+            display: flex;
+            justify-content: center;
+            content: '\276F';
+        } 
+       
+    }
+    &.active .panel__heading {
+        &:before {
+            transform: rotate(90deg);
+        }
+    }
+    &__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1s ease-in-out;
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &.active .panel__content {
+        max-height: 1000px;
+    }
+  
+}

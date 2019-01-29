@@ -100,6 +100,12 @@ function stylesToolkit() {
     .pipe(gulp.dest(config.styles.toolkit.dest));
 }
 
+function copyUntranspiled() {
+  return gulp
+    .src('./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js')
+    .pipe(gulp.dest('./dist/assets/toolkit/untranspiled/'));
+}
+
 const styles = gulp.parallel(stylesFabricator, stylesToolkit);
 
 // scripts
@@ -232,6 +238,6 @@ function watch() {
 }
 
 // default build task
-let tasks = [clean, styles, scripts, images, assembler];
+let tasks = [clean, styles, scripts, images, copyUntranspiled, assembler];
 if (config.dev) tasks = tasks.concat([serve, watch]);
 gulp.task('default', gulp.series(tasks));

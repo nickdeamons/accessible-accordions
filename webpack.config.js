@@ -1,5 +1,5 @@
 const path = require('path');
-
+const { VueLoaderPlugin } = require('vue-loader')
 /**
  * Define loaders
  * @return {Array}
@@ -7,10 +7,10 @@ const path = require('path');
 function getRules() {
   return [
     {
-      test: /(\.js)/,
+      test: /(\.js|jsx)$/,
       exclude: /(node_modules)/,
       use: {
-        loader: 'babel-loader',
+        loader: 'babel-loader'
       },
     },
     {
@@ -28,6 +28,10 @@ function getRules() {
       test: /\.json/,
       loader: 'json-loader',
     },
+    {
+      test: /\.vue$/,
+      use: 'vue-loader'
+    }
   ];
 }
 
@@ -53,6 +57,16 @@ module.exports = ({
     devtool: dev ? 'cheap-module-eval-source-map' : false,
     module: {
       rules: getRules(),
+     
     },
+    resolve: {
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+      }
+    },
+    plugins: [
+      new VueLoaderPlugin(),
+      
+    ]
   };
 };
