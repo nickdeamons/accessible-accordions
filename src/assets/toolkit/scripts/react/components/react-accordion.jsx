@@ -28,12 +28,12 @@ class ReactAccordion extends React.Component {
     render() {
         return (
             <div className={classNames(['accordion', {active: this.state.active}])} >
-                <h4 aria-expanded={this.state.active} onClick={this.toggle.bind(this)} tabIndex="0" onKeyPress={this.toggleKey.bind(this)}>
+                <h4 role="tab" aria-expanded={this.state.active} onClick={this.toggle.bind(this)} tabIndex="0" onKeyPress={this.toggleKey.bind(this)}>
                     test
                 </h4>
                 <CSSTransition classNames="expand" unmountOnExit in={this.state.active} timeout={{enter: 0, exit:1000}}>
                 {(status) => (
-                    <div className='accordion__content' role="region">
+                    <div className='accordion__content' role="tabpanel">
                         <p>Test</p>
                     </div>
                 )}

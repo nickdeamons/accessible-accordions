@@ -17,8 +17,8 @@ class Accordion extends PolymerElement {
         return html `
             ${styles}
             <div class="accordion" id="element">
-                <h4 class="accordion__header" id="accordionHeader" tabIndex="0"><slot name="header"></slot></h4>
-                <div class="accordion__content" aria-role="region"><slot name="content"></slot></div>
+                <h4 class="accordion__header" id="accordionHeader" role="tab" tabIndex="0"><slot name="header"></slot></h4>
+                <div class="accordion__content" role="tabpanel"><slot name="content"></slot></div>
             </div>
         `;
     }

@@ -5,7 +5,8 @@ class jQueryAccordion {
     constructor(el) {
         
         this.el = $(el)
-        this.header = $(el).find('.accordion__header');
+        this.header = $(el).find('.panel__header');
+        this.content = $(el).find('.panel__content');
         this.expanded = false;
         this.init();
     }

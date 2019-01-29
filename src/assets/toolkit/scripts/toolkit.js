@@ -35,6 +35,6 @@ $(document).ready(() => {
 });
 
 const vanillaAccordions = document.querySelectorAll('.accordion .panel');
-vanillaAccordions.forEach((value) => {
-  const vAcc = new BasicAccordion(value);
+vanillaAccordions.forEach((value, index) => {
+  const vAcc = new BasicAccordion(value, index);
 })
